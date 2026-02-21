@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JS Exercise 1</title>
+</head>
+<body>
+
+<h1>JS Exercise 1</h1>
+
+<label>Enter First Number:</label>
+<input type="number" id="num1"><br><br>
+
+<label>Enter Second Number:</label>
+<input type="number" id="num2"><br><br>
+
+<button onclick="calculate()">Calculate</button>
+<button onclick="clearFields()">Clear</button>
+
+<h3>Results:</h3>
+<p>Sum: <span id="sum"></span></p>
+<p>Difference: <span id="diff"></span></p>
+<p>Product: <span id="prod"></span></p>
+<p>Quotient: <span id="quot"></span></p>
+
+<script>
+function calculate() {
+    let n1 = parseFloat(document.getElementById("num1").value);
+    let n2 = parseFloat(document.getElementById("num2").value);
+
+    document.getElementById("sum").innerHTML = n1 + n2;
+    document.getElementById("diff").innerHTML = n1 - n2;
+    document.getElementById("prod").innerHTML = n1 * n2;
+    document.getElementById("quot").innerHTML = n1 / n2;
+}
+
+function clearFields() {
+    document.getElementById("num1").value = "";
+    document.getElementById("num2").value = "";
+
+    document.getElementById("sum").innerHTML = "";
+    document.getElementById("diff").innerHTML = "";
+    document.getElementById("prod").innerHTML = "";
+    document.getElementById("quot").innerHTML = "";
+}
+</script>
+
+</body>
+</html>

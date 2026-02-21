@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JS Exercise 3</title>
+</head>
+<body>
+
+<h1>JS Exercise 3</h1>
+
+<label>Enter a Number:</label>
+<input type="number" id="numberInput"><br><br>
+
+<button onclick="insertNumber()">Insert</button>
+<button onclick="deleteAll()">Delete All</button>
+
+<h3>Numbers:</h3>
+<div id="numbers"></div>
+
+<p>Sum: <span id="sum"></span></p>
+<p>Highest: <span id="highest"></span></p>
+<p>Lowest: <span id="lowest"></span></p>
+
+<script>
+let numbersArray = [];
+
+function insertNumber() {
+    let num = parseFloat(document.getElementById("numberInput").value);
+
+    if (!isNaN(num)) {
+        numbersArray.push(num);
+        displayNumbers();
+        calculateStats();
+    }
+
+    document.getElementById("numberInput").value = "";
+}
+
+function displayNumbers() {
+    document.getElementById("numbers").innerHTML = numbersArray.join("<br>");
+}
+
+function calculateStats() {
+    let sum = 0;
+
+    for (let i = 0; i < numbersArray.length; i++) {
+        sum += numbersArray[i];
+    }
+
+    let highest = Math.max(...numbersArray);
+    let lowest = Math.min(...numbersArray);
+
+    document.getElementById("sum").innerHTML = sum;
+    document.getElementById("highest").innerHTML = highest;
+    document.getElementById("lowest").innerHTML = lowest;
+}
+
+function deleteAll() {
+    numbersArray = [];
+    document.getElementById("numbers").innerHTML = "";
+    document.getElementById("sum").innerHTML = "";
+    document.getElementById("highest").innerHTML = "";
+    document.getElementById("lowest").innerHTML = "";
+}
+</script>
+
+</body>
+</html>
